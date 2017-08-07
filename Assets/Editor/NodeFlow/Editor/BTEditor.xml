@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<editor name="BTEditor" title="行为编辑器" version="0.1" desc="测试版本">
+
+    <node_def name="condition_true_false" type="condition" color="255,0,0" desc="条件节点-是否">
+		<param name="boolean" type="bool" desc="是否" />
+		<output name="true_output" connection_type="condition_connection"  desc="是出口"/>
+		<output name="true_output" connection_type="condition_connection"  desc="非出口"/>
+	</node_def>
+	
+	<node_def name="condition_target" type="condition" color="255,0,0" desc="是否有目标">
+		<output name="true_output" connection_type="condition_connection"  desc="有"/>
+		<output name="false_output" connection_type="condition_connection"  desc="无"/>
+	</node_def>
+	
+	<node_def name="Selector" type="composite" color="0,255,0" desc="选择节点">
+		<input name="condition"  connection_type="condition_connection"   desc="前置条件"/>
+		<input name="input"    desc="入口"/>
+		<output name="output1"  desc="选出1"/>
+		<output name="output2"  desc="选出2"/>
+		<output name="output3"  desc="选出3"/>
+		<output name="output4"  desc="选出4"/>
+	</node_def>
+	
+	<node_def name="sequence" type="composite" color="0,255,0" desc="串行节点">
+		<input name="condition"  connection_type="condition_connection"   desc="前置条件"/>
+		<input name="input"    desc="入口"/>
+		<output name="output1"  desc="串出1"/>
+		<output name="output2"  desc="串出2"/>
+		<output name="output3"  desc="串出3"/>
+		<output name="output4"  desc="串出4"/>
+	</node_def>
+	
+		
+	<node_def name="parallel" type="composite" color="0,255,0" desc="并行节点">
+		<input name="condition"  connection_type="condition_connection"   desc="前置条件"/>
+		<input name="input"    desc="入口"/>
+		<output name="output1"  desc="并出1"/>
+		<output name="output2"  desc="并出2"/>
+		<output name="output3"  desc="并出3"/>
+		<output name="output4"  desc="并出4"/>
+	</node_def>
+	
+	<node_def name="root" type="root" color="0,0,255" desc="根节点">
+		<output name="output1"  desc="出口"/>
+	</node_def>
+	
+	<node_def name="wait_moment" type="action" color="0,0,255" desc="等待一段时间">
+		<input name="condition"  connection_type="condition_connection"   desc="前置条件"/>
+		<input name="input"    desc="入口"/>
+	</node_def>
+	
+	<node_def name="move_to_pos" type="action" color="0,0,255" desc="随机移动">
+		<input name="condition"  connection_type="condition_connection"   desc="前置条件"/>
+		<input name="input"    desc="入口"/>
+	</node_def>
+	
+	<node_def name="idle" type="action" color="0,0,255" desc="待机">
+		<input name="condition"  connection_type="condition_connection"  desc="前置条件"/>
+		<input name="input"    desc="入口"/>
+	</node_def>
+	
+	<node_def name="move_and_attack" type="action" color="0,0,255" desc="移动并攻击">
+		<input name="condition"  connection_type="condition_connection"   desc="前置条件"/>
+		<input name="input"    desc="入口"/>
+	</node_def>
+	
+	<node_def name="move_and_attack" type="action" color="0,0,255" desc="寻敌">
+		<input name="condition"  connection_type="condition_connection"   desc="前置条件"/>
+		<input name="input"    desc="入口"/>
+	</node_def>
+	
+	<connection_def name="condition_connection" multi_input="false" multi_output="false" color="255,0,0" desc="前置条件连线" />
+	
+</editor>

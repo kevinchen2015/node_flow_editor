@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<editor name="ClipEditor" title="clip编辑器" version="0.1" desc="这是一个测试版本的clip编辑器">
+
+	<event_def name="on_skill_start" value="1" type="int" desc="技能开始">
+		<param name="clip_obj_id" type="int" desc="clip的id"/>
+	</event_def>
+	
+	<event_def name="on_skill_finished" value="1" type="int" desc="技能结束">
+		<param name="obj_id" type="int" desc="clip的id"/>
+		<param name="obj" type="clip_obj" desc="clip对象名"/>
+	</event_def>
+
+    <node_def name="event_reciver" type="" color="255,0,0" desc="事件接收节点">
+		<event name="event_name"   params="false" desc="接收事件名"/>
+		<output name="output1"  desc="技能开始事件响应输出"/>
+	</node_def>
+	
+	<node_def name="event_sender" type="" color="0,255,0" desc="事件发送节点">
+		<input name="input1"  connection_type="common_connection"  desc="event_sender入口"/>
+		<event name="event_name" params="true" desc="发送事件和参数" />
+	</node_def>
+	
+	<node_def name="action1" type="" color="0,0,255" desc="动作处理节点">
+		<input name="input1"   desc="action1入口"/>
+		
+		<param name="condition1" type="string" desc="条件1" />
+		<output name="output1"  desc="条件1出口"/>
+		
+		<param name="condition2" type="string" desc="条件2" />
+		<output name="output2" connection_type="common_connection" desc="条件2出口"/>
+		
+		<param name="condition3" type="string" desc="条件3" />
+		<output name="output3"  desc="条件3出口"/>
+	</node_def>
+	
+	<node_def name="action2" type="" color="0,0,255" desc="动态动作处理节点">
+		<input name="input"   desc="入口"/>
+		<param name="condition" type="string" desc="条件" />
+		<output name="output"  desc="出口"/>
+	</node_def>
+	
+	<connection_def name="common_connection" multi_input="true" multi_output="true" color="255,0,0" desc="普通的clip链接" />
+
+  
+</editor>

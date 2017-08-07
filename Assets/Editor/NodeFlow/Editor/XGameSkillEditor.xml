@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<editor name="XGameSkillEditor" title="XGameSkill编辑器" version="0.1" desc="Test for XGame">
+
+	<event_def name="killed_target" value="g_plug_evt_type.killed_target" type="enum" desc="杀死目标事件">
+	</event_def>
+	
+	<event_def name="move" value="g_plug_evt_type.move" type="enum" desc="移动事件">
+	</event_def>
+
+    <node_def name="event_reciver" type="event" color="255,0,0" desc="事件接收">
+		<event name="event_name"  params="false" desc="接收事件名"/>
+		<output name="output1"  desc="输出"/>
+	</node_def>
+	
+	<node_def name="event_sender" type="event" color="255,0,0" desc="事件发送">
+		<input name="input1"  connection_type="common_connection"  desc="event_sender入口"/>
+		<event name="event_name" params="true" desc="发送事件和参数" />
+	</node_def>
+	
+	<node_def name="node_function_check_target" type="action" color="0,255,0" desc="检查对象">
+		<input name="input1"   desc="入口"/>
+		
+		<param name="recheck" type="bool" desc="是否recheck" />
+		
+		<output name="collider_idle"  desc="_idle"/>
+		<output name="collider_wall"  desc="_wall"/>
+		<output name="collider_xuli"  desc="_xuli"/>
+	</node_def>
+	
+	<node_def name="node_function_delete_target" type="action" color="0,255,0" desc="删除目标">
+		<input name="input"   desc="入口"/>
+	</node_def>
+	
+	<node_def name="node_function_on_collider" type="action" color="0,255,0" desc="碰撞">
+		<input name="input"   desc="入口"/>
+		<param name="value_from_buff" type="string" desc="攻击值" />
+		<param name="trap_damage" type="bool" desc="是否陷阱伤害" />
+	</node_def>
+  
+</editor>
